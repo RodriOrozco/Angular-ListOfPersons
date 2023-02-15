@@ -1,0 +1,13 @@
+<button [disabled]="disabledButton" (click)="addPerson()">Add Person!</button>
+<p *ngIf="showMessage; else withoutPerson">
+  {{ messageButton }}, y su titulo es: {{ titleInput }}
+</p>
+<ng-template #withoutPerson>
+  <p>Nobody added yet...</p>
+</ng-template>
+
+<div>
+  <label for="">Person Title</label>
+  <input type="text" placeholder="Add title..." [(ngModel)]="titleInput" />
+  <p>{{ titleInput }}</p>
+</div>
