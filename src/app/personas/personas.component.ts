@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Persona } from './persona.model';
 
 @Component({
   selector: 'app-personas',
@@ -6,14 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./personas.component.scss']
 })
 export class PersonasComponent {
-  disabledButton: Boolean = false;
-  titleInput:String = '';
-  messageButton:String = '';
-  showMessage: Boolean = false;
+  nameInput:string = '';
+  lastNameInput:string = '';
+  persons:Persona[] = [ 
+    new Persona("Rodrigo", "Orozco"), 
+    new Persona("Don", "Pepito"), 
+    new Persona("Don", "Jose")
+  ]
 
   addPerson = () => {
-    this.showMessage = true;
-    this.messageButton = 'You add a new person!';
-    this.disabledButton = true;
+    let newPersonAdded = new Persona(this.nameInput, this.lastNameInput);
+    this.persons.push(newPersonAdded);
+
   }
 }

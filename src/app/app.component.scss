@@ -1,0 +1,12 @@
+.app-container {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100%;
+  padding: 1rem;
+
+  &__h1 {
+    color: aquamarine;
+    font-size: 45px;
+    -webkit-text-stroke: 1px black;
+  }
+}
