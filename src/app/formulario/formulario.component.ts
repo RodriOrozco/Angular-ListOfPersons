@@ -12,7 +12,11 @@ import { PersonsService } from '../services/PersonsService.service';
 })
 export class FormularioComponent {
   // constructor(private LogginService:LoggingService){}
-  constructor(private PersonsService: PersonsService) {}
+  constructor(private PersonsService: PersonsService) {
+    this.PersonsService.greet.subscribe((index: number) =>
+      alert('The index is: ' + index)
+    );
+  }
 
   nameInput: string = '';
   lastNameInput: string = '';

@@ -1,3 +1,10 @@
 <div class="persons-container">
   <p>{{ index + 1 }}: {{ person.name }} {{ person.lastName }}</p>
+  <button
+    type="submit"
+    class="persons-container__button"
+    (click)="sendGreeting()"
+  >
+    Edit
+  </button>
 </div>
