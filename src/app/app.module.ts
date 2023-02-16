@@ -6,19 +6,17 @@ import { PersonasComponent } from './personas/personas.component';
 import { FormsModule } from '@angular/forms';
 import { PersonaComponent } from './persona/persona.component';
 import { FormularioComponent } from './formulario/formulario.component';
+import { PersonsService } from './services/PersonsService.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonasComponent,
     PersonaComponent,
-    FormularioComponent
+    FormularioComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, FormsModule],
+  providers: [PersonsService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

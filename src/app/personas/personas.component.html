@@ -1,4 +1,4 @@
-<app-formulario (personCreated)="pushNewPerson($event)"></app-formulario>
+<app-formulario (personCreated)="addPersonList($event)"></app-formulario>
 <app-persona
   *ngFor="let personElement of persons; let i = index"
   [person]="personElement"
