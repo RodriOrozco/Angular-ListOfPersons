@@ -16,7 +16,7 @@ export class PersonasComponent implements OnInit {
     this.persons = this.PersonsService.persons;
   }
 
-  addPersonList = (person: Persona) => {
-    this.PersonsService.pushNewPerson(person);
-  };
+  // addPersonList = (person: Persona) => {
+  //   this.PersonsService.pushNewPerson(person);
+  // };
 }
