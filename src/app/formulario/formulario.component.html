@@ -1,0 +1,27 @@
+<form class="form">
+  <div class="form__container container">
+    <label for="name" class="container__label">Name</label>
+    <input
+      class="container__input"
+      type="text"
+      name="name"
+      id="name"
+      placeholder="Add name..."
+      [(ngModel)]="nameInput"
+    />
+  </div>
+  <div class="form__container container">
+    <label for="name" class="container__label">Last Name</label>
+    <input
+      class="container__input"
+      type="text"
+      name="name"
+      id="name"
+      placeholder="Add last name..."
+      [(ngModel)]="lastNameInput"
+    />
+  </div>
+  <button class="form__button" type="submit" (click)="addPerson()">
+    Add Person!
+  </button>
+</form>

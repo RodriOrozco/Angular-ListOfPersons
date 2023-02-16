@@ -1,31 +1,7 @@
-<form class="form">
-  <div class="form__container container">
-    <label for="name" class="container__label">Name</label>
-    <input
-      class="container__input"
-      type="text"
-      name="name"
-      id="name"
-      placeholder="Add name..."
-      [(ngModel)]="nameInput"
-    />
-  </div>
-  <div class="form__container container">
-    <label for="name" class="container__label">Last Name</label>
-    <input
-      class="container__input"
-      type="text"
-      name="name"
-      id="name"
-      placeholder="Add last name..."
-      [(ngModel)]="lastNameInput"
-    />
-  </div>
-  <button class="form__button" type="submit" (click)="addPerson()">
-    Add Person!
-  </button>
-</form>
-
-<div *ngFor="let person of persons; let i = index" class="persons-container">
-  <p>{{ i + 1 }}: {{ person.name }} {{ person.lastName }}</p>
-</div>
+<app-formulario (personCreated)="pushNewPerson($event)"></app-formulario>
+<app-persona
+  *ngFor="let personElement of persons; let i = index"
+  [person]="personElement"
+  [index]="i"
+>
+</app-persona>

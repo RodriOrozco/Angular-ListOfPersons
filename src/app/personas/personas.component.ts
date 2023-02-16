@@ -7,17 +7,14 @@ import { Persona } from './persona.model';
   styleUrls: ['./personas.component.scss']
 })
 export class PersonasComponent {
-  nameInput:string = '';
-  lastNameInput:string = '';
+  
   persons:Persona[] = [ 
     new Persona("Rodrigo", "Orozco"), 
     new Persona("Don", "Pepito"), 
     new Persona("Don", "Jose")
   ]
 
-  addPerson = () => {
-    let newPersonAdded = new Persona(this.nameInput, this.lastNameInput);
-    this.persons.push(newPersonAdded);
-
+  pushNewPerson = (person:Persona)=>{
+    this.persons.push(person);
   }
 }
