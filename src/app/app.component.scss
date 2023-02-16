@@ -5,8 +5,12 @@
   padding: 1rem;
 
   &__h1 {
-    color: aquamarine;
+    color: #23cdfc;
     font-size: 45px;
-    -webkit-text-stroke: 1px black;
+    text-transform: uppercase;
+    width: fit-content;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #2d325a;
   }
 }
