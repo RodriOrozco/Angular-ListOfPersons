@@ -3,6 +3,9 @@
   width: 100%;
   min-height: 100%;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__h1 {
     color: #23cdfc;

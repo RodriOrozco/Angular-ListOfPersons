@@ -1,1 +1,16 @@
+.persons-full-container {
+  width: 31.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #2d325a;
+  margin-top: 3rem;
+  position: relative;
 
+  &__image {
+    position: absolute;
+    right: -5rem;
+    top: -7.5rem;
+    width: auto;
+    height: 180px;
+  }
+}

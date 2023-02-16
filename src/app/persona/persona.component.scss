@@ -1,19 +1,29 @@
 .persons-container {
   display: flex;
-  gap: 3rem;
+  // gap: 3rem;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+
+  &__text {
+    color: #23cdfc;
+    font-size: 20px;
+  }
 
   &__button {
     color: white;
     cursor: pointer;
     border-radius: 1rem;
-    background-color: rgb(6, 107, 107);
+    background-color: #24639a;
+    border: none;
     height: 2rem;
     width: 5rem;
     transition: ease 0.2s;
+    z-index: 2;
 
     &:hover {
-      background-color: rgb(4, 71, 71);
+      color: #23cdfc;
+      background-color: #1b4b75;
     }
   }
 }

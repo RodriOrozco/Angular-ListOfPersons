@@ -1,8 +1,15 @@
 <!-- <app-formulario (personCreated)="addPersonList($event)"></app-formulario> -->
 <app-formulario></app-formulario>
-<app-persona
-  *ngFor="let personElement of persons; let i = index"
-  [person]="personElement"
-  [index]="i"
->
-</app-persona>
+<div class="persons-full-container">
+  <img
+    src="../../assets/icon-list.png"
+    class="persons-full-container__image"
+    alt=""
+  />
+  <app-persona
+    *ngFor="let personElement of persons; let i = index"
+    [person]="personElement"
+    [index]="i"
+  >
+  </app-persona>
+</div>
