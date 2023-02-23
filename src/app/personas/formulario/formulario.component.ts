@@ -15,6 +15,8 @@ export class FormularioComponent implements OnInit {
   nameInput: string = '';
   lastNameInput: string = '';
   index!: number;
+  modeEdition!: number;
+
   // @Output() personCreated = new EventEmitter<Persona>();
 
   // constructor(private LogginService:LoggingService){}
@@ -30,7 +32,9 @@ export class FormularioComponent implements OnInit {
 
   ngOnInit(): void {
     this.index = this.route.snapshot.params['id'];
-    if (this.index) {
+    this.modeEdition = +this.route.snapshot.queryParams['modeEdition'];
+
+    if (this.modeEdition !== null && this.modeEdition === 1) {
       let person: Persona = this.PersonsService.findPerson(this.index);
       this.nameInput = person.name;
       this.lastNameInput = person.lastName;
@@ -49,7 +53,7 @@ export class FormularioComponent implements OnInit {
 
   savePerson = () => {
     let newPersonAdded = new Persona(this.nameInput, this.lastNameInput);
-    if (this.index) {
+    if (this.modeEdition !== null && this.modeEdition === 1) {
       this.PersonsService.editPerson(this.index, newPersonAdded);
       this.router.navigate(['personas']);
     } else {

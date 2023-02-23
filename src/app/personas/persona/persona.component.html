@@ -1,6 +1,6 @@
 <div class="persons-container">
   <ul class="persons-container__text">
-    <li [routerLink]="['/personas', index]">
+    <li [routerLink]="['/personas', index]" [queryParams]="{ modeEdition: 1 }">
       {{ person.name }} {{ person.lastName }}
     </li>
   </ul>
