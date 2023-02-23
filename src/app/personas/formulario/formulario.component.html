@@ -1,4 +1,4 @@
-<form class="form">
+<form class="form" #f="ngForm" (ngSubmit)="f.form.valid && savePerson()">
   <div class="form__container container">
     <label for="name" class="container__label">Name</label>
     <input
@@ -8,6 +8,7 @@
       id="name"
       placeholder="Add name..."
       [(ngModel)]="nameInput"
+      required
     />
   </div>
   <div class="form__container container">
@@ -19,7 +20,8 @@
       id="name"
       placeholder="Add last name..."
       [(ngModel)]="lastNameInput"
+      required
     />
   </div>
-  <button class="form__button" type="submit" (click)="addPerson()">+</button>
+  <button class="form__button" type="submit">+</button>
 </form>

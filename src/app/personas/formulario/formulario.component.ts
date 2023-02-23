@@ -1,8 +1,9 @@
 // import { Component, Output, EventEmitter } from '@angular/core';
 import { Component } from '@angular/core';
-import { Persona } from '../personas/persona.model';
-import { LoggingService } from '../services/LoggingService.service';
-import { PersonsService } from '../services/PersonsService.service';
+import { Persona } from '../persona.model';
+import { LoggingService } from '../../services/LoggingService.service';
+import { PersonsService } from '../../services/PersonsService.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -12,7 +13,7 @@ import { PersonsService } from '../services/PersonsService.service';
 })
 export class FormularioComponent {
   // constructor(private LogginService:LoggingService){}
-  constructor(private PersonsService: PersonsService) {
+  constructor(private PersonsService: PersonsService, private router: Router) {
     this.PersonsService.greet.subscribe((index: number) =>
       alert('The index is: ' + index)
     );
@@ -30,5 +31,13 @@ export class FormularioComponent {
 
     this.nameInput = '';
     this.lastNameInput = '';
+  };
+
+  savePerson = () => {
+    let newPersonAdded = new Persona(this.nameInput, this.lastNameInput);
+    this.PersonsService.pushNewPerson(newPersonAdded);
+    this.nameInput = '';
+    this.lastNameInput = '';
+    this.router.navigate(['personas']);
   };
 }
