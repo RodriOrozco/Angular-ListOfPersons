@@ -17,4 +17,19 @@ export class PersonsService {
     this.persons.push(person);
     this.LoggingService.sendMessageConsole('person added succesfuly!');
   };
+
+  findPerson = (index: number): Persona => {
+    let person: Persona = this.persons[index];
+    return person;
+  };
+
+  editPerson = (index: number, person: Persona) => {
+    let personToEdit = this.persons[index];
+    personToEdit.name = person.name;
+    personToEdit.lastName = person.lastName;
+  };
+
+  deletePersonService = (index: number) => {
+    this.persons.splice(index, 1);
+  };
 }

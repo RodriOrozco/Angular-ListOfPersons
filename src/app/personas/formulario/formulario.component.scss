@@ -3,7 +3,7 @@
   align-items: flex-end;
   gap: 2rem;
   padding: 1rem;
-  width: 31.5rem;
+  width: 37rem;
   border-radius: 1rem;
   background-color: #2d325a;
 
@@ -40,6 +40,29 @@
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 0 0 black;
     z-index: 2;
+    &--red {
+      width: 3rem;
+      height: 3rem;
+      font-size: 25px;
+      border-radius: 50%;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 0 0 black;
+      z-index: 2;
+      color: #c17070;
+      background-color: #9a2424;
+      &:hover {
+        transform: translateY(-4px) translateX(-2px);
+        box-shadow: 2px 5px 0 0 black;
+      }
+
+      &:active {
+        transform: translateY(2px) translateX(1px);
+        box-shadow: 0 0 0 0 black;
+      }
+    }
 
     &:hover {
       transform: translateY(-4px) translateX(-2px);

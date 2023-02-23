@@ -1,9 +1,9 @@
 // import { Component, Output, EventEmitter } from '@angular/core';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Persona } from '../persona.model';
 import { LoggingService } from '../../services/LoggingService.service';
 import { PersonsService } from '../../services/PersonsService.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -11,17 +11,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./formulario.component.scss'],
   providers: [LoggingService],
 })
-export class FormularioComponent {
+export class FormularioComponent implements OnInit {
+  nameInput: string = '';
+  lastNameInput: string = '';
+  index!: number;
+  // @Output() personCreated = new EventEmitter<Persona>();
+
   // constructor(private LogginService:LoggingService){}
-  constructor(private PersonsService: PersonsService, private router: Router) {
+  constructor(
+    private PersonsService: PersonsService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.PersonsService.greet.subscribe((index: number) =>
       alert('The index is: ' + index)
     );
   }
 
-  nameInput: string = '';
-  lastNameInput: string = '';
-  // @Output() personCreated = new EventEmitter<Persona>();
+  ngOnInit(): void {
+    this.index = this.route.snapshot.params['id'];
+    if (this.index) {
+      let person: Persona = this.PersonsService.findPerson(this.index);
+      this.nameInput = person.name;
+      this.lastNameInput = person.lastName;
+    }
+  }
 
   addPerson = (): void => {
     let newPersonAdded = new Persona(this.nameInput, this.lastNameInput);
@@ -35,9 +49,21 @@ export class FormularioComponent {
 
   savePerson = () => {
     let newPersonAdded = new Persona(this.nameInput, this.lastNameInput);
-    this.PersonsService.pushNewPerson(newPersonAdded);
-    this.nameInput = '';
-    this.lastNameInput = '';
+    if (this.index) {
+      this.PersonsService.editPerson(this.index, newPersonAdded);
+      this.router.navigate(['personas']);
+    } else {
+      this.PersonsService.pushNewPerson(newPersonAdded);
+      this.nameInput = '';
+      this.lastNameInput = '';
+      this.router.navigate(['personas']);
+    }
+  };
+
+  deletePerson = () => {
+    if (this.index !== null) {
+      this.PersonsService.deletePersonService(this.index);
+    }
     this.router.navigate(['personas']);
   };
 }

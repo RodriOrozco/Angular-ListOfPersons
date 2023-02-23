@@ -16,12 +16,20 @@
     <input
       class="container__input"
       type="text"
-      name="name"
-      id="name"
+      name="lastName"
+      id="lastName"
       placeholder="Add last name..."
       [(ngModel)]="lastNameInput"
       required
     />
   </div>
   <button class="form__button" type="submit">+</button>
+  <button
+    class="form__button--red"
+    type="submit"
+    *ngIf="index !== null"
+    (click)="deletePerson()"
+  >
+    -
+  </button>
 </form>

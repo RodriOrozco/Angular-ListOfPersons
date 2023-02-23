@@ -1,4 +1,19 @@
 <div class="persons-container">
+  <ul class="persons-container__text">
+    <li [routerLink]="['/personas', index]">
+      {{ person.name }} {{ person.lastName }}
+    </li>
+  </ul>
+  <button
+    type="submit"
+    class="persons-container__button"
+    (click)="sendGreeting()"
+  >
+    Edit
+  </button>
+</div>
+
+<!-- <div class="persons-container">
   <p class="persons-container__text">
     {{ index + 1 }}: {{ person.name }} {{ person.lastName }}
   </p>
@@ -9,4 +24,4 @@
   >
     Edit
   </button>
-</div>
+</div> -->
