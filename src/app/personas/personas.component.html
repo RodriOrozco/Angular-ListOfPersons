@@ -1,11 +1,10 @@
-<!-- <app-formulario (personCreated)="addPersonList($event)"></app-formulario> -->
 <div class="all-elements-container">
   <div class="container-button">
     <button class="container-button__add" (click)="add()">
       Add New Person!
     </button>
   </div>
-  <app-formulario></app-formulario>
+  <router-outlet></router-outlet>
   <div class="persons-full-container">
     <img
       src="../../assets/icon-list.png"
@@ -20,3 +19,6 @@
     </app-persona>
   </div>
 </div>
+
+<!-- <app-formulario (personCreated)="addPersonList($event)"></app-formulario> -->
+<!-- <app-formulario></app-formulario> -->
