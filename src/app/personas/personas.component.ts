@@ -14,7 +14,13 @@ export class PersonasComponent implements OnInit {
   constructor(private PersonsService: PersonsService, private router: Router) {}
 
   ngOnInit(): void {
-    this.persons = this.PersonsService.persons;
+    this.PersonsService.getPersons().subscribe(
+      (personArray: Persona[]): void => {
+        console.log(personArray);
+        this.persons = personArray;
+        this.PersonsService.setPersons(personArray);
+      }
+    );
   }
 
   add = () => {
